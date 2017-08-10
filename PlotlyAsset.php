@@ -9,7 +9,6 @@
 namespace turek\plotly;
 
 use yii\web\AssetBundle;
-use yii\web\JqueryAsset;
 
 /**
  * Asset bundle for [[Plotly]] Widget
@@ -23,9 +22,12 @@ class PlotlyAsset extends AssetBundle
      */
     public function init()
     {
-        $this->setSourcePath(__DIR__ . '/assets');
-        $this->setupAssets('css', ['css/plotly']);
-        $this->setupAssets('js', ['js/plotly-1.29.3']);
+        $this->sourcePath = __DIR__ . '/assets';
+        $this->basePath = '@web/assets';
+
+        $this->css = ['css/plotly.css'];
+        $this->js = ['js/plotly-1.29.3.min.js'];
+
         parent::init();
     }
 }
