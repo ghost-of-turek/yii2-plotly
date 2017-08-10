@@ -1,0 +1,21 @@
+{
+    "name": "turek/yii2-plotly",
+    "description": "Yii2 widget for plotly.js",
+    "type": "yii2-extension",
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "Artur Ciesielski",
+            "email": "artur.ciesielski@gmail.com"
+        }
+    ],
+    "require": {
+        "php": "~7.1",
+        "yiisoft/yii2": ">=2.0.12"
+    },
+    "autoload": {
+        "psr-4": {
+             "turek\\plotly\\": ""
+        }
+    }
+}
