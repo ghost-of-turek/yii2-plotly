@@ -56,14 +56,7 @@ class Plotly extends Widget
         BARMODE_OFFSET = 'offset';
 
     /**
-     * Type of source file to be parsed. One of: "csv" | "json".
-     *
-     * @var string
-     */
-    public $sourceType;
-
-    /**
-     * Link to source file (CSV or JSON) with input data. Can be specified as a remote resource.
+     * Link to source file (CSV or JSON) with input data. Should be specified as a remote resource, not a local file.
      * Can be omitted if the $traces field already has the necessary data embedded.
      *
      * @var string
@@ -71,10 +64,20 @@ class Plotly extends Widget
     public $sourceFile;
 
     /**
+     * Type of source file to be parsed. One of: "csv" | "json". Required if $sourceFile is set.
+     *
+     * @var string
+     */
+    public $sourceType;
+
+    /**
      * Configuration arrays for traces. Please refer to Plotly's documentation for field reference.
-     * For fields specified as callbacks, the signature should be 'function (data) { ... }'.
+     *
+     * For fields specified as callbacks, the signature should be 'function (data) { ... }',
+     * preferably as a JSExpression object.
      *
      * @var array[]
+     * @see https://plot.ly/javascript/reference/
      */
     public $traces = [];
 
@@ -85,13 +88,6 @@ class Plotly extends Widget
      * @see https://plot.ly/javascript/reference/
      */
     public $layout = [];
-
-    /**
-     * HTML options for Plotly's container.
-     *
-     * @var array
-     */
-    public $options = [];
 
     /**
      * Options passed to Plotly during graph rendering.
@@ -108,8 +104,17 @@ class Plotly extends Widget
     public $loadingAnimation = true;
 
     /**
-     * Functions that will be available for data formatting (array in the form of ['functionName' => JS function]).
-     * If you would like to have certain functions available in every Plotly widget consider configuring the Dependency Injector.
+     * HTML options for Plotly's container.
+     *
+     * @var array
+     */
+    public $options = [];
+
+    /**
+     * JS functions that will be available for data formatting (array in the form of ['functionName' => JS function]).
+     *
+     * If you would like to have certain functions available in every Plotly widget
+     * consider configuring the Dependency Injector.
      *
      * @var string[]
      */
