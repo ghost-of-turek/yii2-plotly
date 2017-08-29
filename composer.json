@@ -1,12 +1,14 @@
 {
     "name": "turek/yii2-plotly",
-    "description": "Yii2 widget for plotly.js",
     "type": "yii2-extension",
+    "description": "Yii2 widget for plotly.js",
+    "keywords": ["yii2", "plotly", "plotly.js", "graph", "plot"],
     "license": "MIT",
     "authors": [
         {
             "name": "Artur Ciesielski",
-            "email": "artur.ciesielski@gmail.com"
+            "email": "artur.ciesielski@gmail.com",
+            "role": "Developer"
         }
     ],
     "require": {
